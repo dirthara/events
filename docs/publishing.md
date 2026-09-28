@@ -82,6 +82,9 @@ Because the dispatch is synchronous, so is the publish: every listener has run b
 exception thrown by a listener or by the dispatcher leaves `publish()` unchanged. That is how this publisher happens to
 behave, not what `EventPublisher` promises. Code that publishes an event should not rely on it.
 
+To handle published events later in the same process instead, wrap the publisher in a
+[`DeferredEventPublisher`](deferred-publishing.md).
+
 ## Publish immutable events
 
 A published event may be handled after `publish()` returns, so nothing the caller does to it afterwards, and nothing a

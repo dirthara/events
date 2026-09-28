@@ -59,4 +59,5 @@ Code that only announces an event, and does not rely on its listeners, can [publ
 | [Listening for events](listeners.md) | Registering listeners, priorities, parent class and interface matching, and duplicate registrations. |
 | [Dispatching events](dispatching.md) | The dispatcher, stoppable events, and exceptions thrown by listeners. |
 | [Publishing events](publishing.md) | One-way publishing, and when to publish rather than dispatch. |
+| [Deferred publishing](deferred-publishing.md) | Buffering published events and flushing them later. |
 | [Installation](installation.md) | Requirements and installation. |
