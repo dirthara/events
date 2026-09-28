@@ -256,7 +256,7 @@ final class ListenerProviderTest extends TestCase
                 'Unable to listen for "Missing\\nForged log line": an event type has to be an existing class, interface, or enum.',
                 $exception->getMessage(),
             );
-            self::assertSame(['event' => "Missing\nForged log line"], $exception->context);
+            self::assertSame(['event' => 'Missing\\nForged log line'], $exception->context);
         }
     }
 

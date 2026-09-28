@@ -76,8 +76,8 @@ try {
 }
 ```
 
-The message escapes control characters in the rejected name, so a value that reaches `listen()` from outside cannot
-forge a line in a log. The context holds the name exactly as it was given.
+The message and the context escape control characters in the rejected name, so a value that reaches `listen()` from
+outside cannot forge a line in a log.
 
 ## Match parent classes and interfaces
 

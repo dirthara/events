@@ -56,6 +56,6 @@ final class InvalidEventTypeExceptionTest extends TestCase
             'Unable to listen for "Missing\\n\\000Event\\177": an event type has to be an existing class, interface, or enum.',
             $exception->getMessage(),
         );
-        self::assertSame(['event' => "Missing\n\0Event\x7f"], $exception->context);
+        self::assertSame(['event' => 'Missing\\n\\000Event\\177'], $exception->context);
     }
 }

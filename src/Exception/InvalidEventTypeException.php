@@ -30,7 +30,7 @@ final class InvalidEventTypeException extends InvalidArgumentException implement
                 'Unable to listen for "%s": an event type has to be an existing class, interface, or enum.',
                 self::printable($event),
             ),
-            context: ['event' => $event],
+            context: ['event' => self::printable($event)],
         );
     }
 }

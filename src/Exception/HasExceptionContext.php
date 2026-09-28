@@ -27,7 +27,8 @@ trait HasExceptionContext
     }
 
     /**
-     * Escapes control characters in a value quoted in a message, so a rejected value cannot forge a line in a log.
+     * Escapes control characters in a value quoted in a message or its context, so a rejected value cannot forge a line
+     * in a log.
      */
     private static function printable(string $value): string
     {
