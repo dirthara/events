@@ -4,8 +4,10 @@
 
 # Dirthara Events
 
-Events for the Dirthara framework. This repository is the initial package scaffold; no public API or release is available yet. Usage 
-documentation lives in [`docs`](docs/intro.md) and is published on the Dirthara documentation site at 
+A PSR-14 event dispatcher and listener provider for the Dirthara framework, dispatching plain PHP objects as events.
+
+Usage guides and API documentation live in [`docs`](docs/intro.md), starting with
+[listening for events](docs/listeners.md). They are published on the Dirthara documentation site at
 <https://dirthara.github.io/docs/>, which documents every package in the framework.
 
 ## Installation
@@ -47,9 +49,6 @@ docker compose exec php composer test
 ```
 
 Tests belong in `tests`, under `Dirthara\Events\Tests`. Source belongs in `src`, under `Dirthara\Events`.
-
-The package starts with its exception interface, `Dirthara\Events\Exception\EventsException`, and the 
-`HasExceptionContext` trait every exception uses to carry its context, both covered by tests.
 
 ## Code quality
 

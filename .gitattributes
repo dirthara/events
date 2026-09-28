@@ -24,6 +24,7 @@
 /logo-square-no-bg.png  export-ignore
 /logo-square.png        export-ignore
 /mago.toml              export-ignore
+/patches                export-ignore
 /phpunit.xml            export-ignore
 /scripts                export-ignore
 /tests                  export-ignore

@@ -1,26 +1,63 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dirthara\Events;
 
+use Closure;
 use Psr\EventDispatcher\ListenerProviderInterface;
+use Dirthara\Events\Exception\InvalidEventTypeException;
 
-class ListenerProvider implements ListenerProviderInterface
+use function usort;
+use function array_map;
+use function array_filter;
+use function array_values;
+use function class_exists;
+use function interface_exists;
+
+final class ListenerProvider implements ListenerProviderInterface
 {
-    private array $listeners = [];
+    /**
+     * @var list<ListenerRegistration>
+     */
+    private array $registrations = [];
 
-    public function getListenersForEvent(object $event): iterable
+    private int $order = 0;
+
+    /**
+     * @param class-string $event
+     *
+     * @throws InvalidEventTypeException
+     */
+    public function listen(string $event, callable $listener, int $priority = 0): void
     {
-        foreach ($this->listeners as $eventType => $listeners) {
-            if (!$event instanceof $eventType) {
-                continue;
-            }
-
-            yield from $listeners;
+        if (!class_exists($event) && !interface_exists($event)) {
+            throw InvalidEventTypeException::notAnObjectType($event);
         }
+
+        $this->registrations[] = new ListenerRegistration(
+            $event,
+            Closure::fromCallable($listener),
+            $priority,
+            $this->order++,
+        );
+
+        usort($this->registrations, ListenerRegistration::compare(...));
     }
 
-    public function listen($event, $listener, int $priority = 0): iterable
+    /**
+     * @return iterable<callable>
+     */
+    public function getListenersForEvent(object $event): iterable
     {
-        // todo
+        return array_filter(
+            $this->registrations,
+            static fn(ListenerRegistration $registration): bool => $registration->appliesTo($event),
+        )
+            |> array_values(...)
+            |> (static fn(array $x) => array_map(
+                static fn(ListenerRegistration $registration): Closure => $registration->listener,
+                $x,
+            ));
     }
 }

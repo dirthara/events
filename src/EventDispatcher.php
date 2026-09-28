@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dirthara\Events;
 
+use Psr\EventDispatcher\StoppableEventInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
-use Psr\EventDispatcher\StoppableEventInterface;
 
 final readonly class EventDispatcher implements EventDispatcherInterface
 {

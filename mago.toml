@@ -3,6 +3,7 @@ php-version = "8.5"
 [source]
 paths = ["src", "tests"]
 includes = ["vendor"]
+patches = ["patches"]
 
 # CS-1: 4 spaces and a soft line length of 120 characters.
 [formatter]
@@ -114,11 +115,11 @@ enabled = false
 [linter.rules.too-many-properties]
 enabled = false
 
-# The package depends on nothing beyond PHP; add a dependency here when the package requires one. Tests may use
-# anything.
+# The package depends on PHP and psr/event-dispatcher; add a dependency here when the package requires one. Tests may
+# use anything.
 [[guard.perimeter.rules]]
 namespace = "Dirthara\\Events\\"
-permit = ["@native", "Dirthara\\Events\\**"]
+permit = ["@native", "Dirthara\\Events\\**", "Psr\\EventDispatcher\\**"]
 
 [[guard.perimeter.rules]]
 namespace = "Dirthara\\Events\\Tests\\"
@@ -127,6 +128,7 @@ permit = ["@all"]
 # CS-1 §15: classes are final.
 [[guard.structural.rules]]
 on = "Dirthara\\Events\\**"
+not-on = "Dirthara\\Events\\Tests\\Fixtures\\UserEvent"
 target = "class"
 must-be-final = true
 reason = "Classes are final (CS-1 §15)."

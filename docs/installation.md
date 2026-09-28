@@ -2,7 +2,7 @@
 id: installation
 title: Installation
 sidebar_position: 2
-description: Requirements and installation status for Dirthara Events.
+description: Requirements and installation of Dirthara Events.
 ---
 
 ## Requirements
@@ -13,6 +13,9 @@ runtime dependency, the PSR interface package it implements:
 | Package | Provides |
 | --- | --- |
 | `psr/event-dispatcher` `^1.0` | The PSR-14 event dispatcher interfaces. |
+
+The package declares that it provides `psr/event-dispatcher-implementation`, so a library that requires a PSR-14
+implementation, rather than a specific dispatcher, can be installed together with it.
 
 ## Package installation
 
