@@ -37,7 +37,7 @@ final class ListenerProvider implements ListenerProviderInterface
 
         $this->registrations[] = new ListenerRegistration(
             $event,
-            Closure::fromCallable($listener),
+            $listener(...),
             $priority,
             $this->order++,
         );
