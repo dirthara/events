@@ -2,7 +2,7 @@
 id: intro
 title: Dirthara Events
 sidebar_position: 1
-description: A PSR-14 event dispatcher and listener provider that dispatches plain PHP objects as events.
+description: PSR-14 event dispatching, listener registration, and event publishing with plain PHP objects.
 ---
 
 Dirthara Events is a [PSR-14](https://www.php-fig.org/psr/psr-14/) event dispatcher. `EventDispatcher` implements

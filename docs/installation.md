@@ -19,16 +19,11 @@ implementation, rather than a specific dispatcher, can be installed together wit
 
 ## Package installation
 
-Once published, install the package using Composer:
+Install the package using Composer:
 
 ```sh
 composer require dirthara/events
 ```
-
-:::caution
-There is no published release yet. The command above describes the intended
-installation after publication.
-:::
 
 For development, follow the Docker and Composer setup in the repository's
 [README](https://github.com/dirthara/events#readme). Development tooling

@@ -1,6 +1,6 @@
 {
     "name": "dirthara/events",
-    "description": "Events for the Dirthara framework",
+    "description": "PSR-14 event dispatching and event publishing for PHP and the Dirthara framework",
     "type": "library",
     "homepage": "https://dirthara.github.io/docs/",
     "require": {

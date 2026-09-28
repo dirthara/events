@@ -26,8 +26,8 @@ until `flush()` is called. Any `EventPublisher` can be wrapped: a `SynchronousEv
 package, or another `DeferredEventPublisher`.
 
 `DeferredEventPublisher` implements `Dirthara\Events\Contract\FlushableEventPublisher`, an `EventPublisher` with a
-`flush()` method. Code that only publishes events types against `EventPublisher`; the code that decides when the buffer
-is emptied types against `FlushableEventPublisher`.
+`flush()` method. Code that only publishes events depends on `EventPublisher`; the code that decides when the buffer is
+emptied depends on `FlushableEventPublisher`.
 
 ## Deferred is not asynchronous
 
