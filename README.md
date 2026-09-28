@@ -4,7 +4,8 @@
 
 # Dirthara Events
 
-A PSR-14 event dispatcher and listener provider for the Dirthara framework, dispatching plain PHP objects as events.
+A PSR-14 event dispatcher and listener provider for the Dirthara framework, dispatching plain PHP objects as events, and
+a publisher for announcing them as one-way notifications.
 
 Usage guides and API documentation live in [`docs`](docs/intro.md), starting with
 [listening for events](docs/listeners.md). They are published on the Dirthara documentation site at

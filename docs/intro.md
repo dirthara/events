@@ -51,8 +51,12 @@ $dispatcher->dispatch(
 `ListenerProvider` holds the listeners and decides which of them apply to an event, and in which order.
 `EventDispatcher` asks its provider for those listeners and calls each of them in turn with the event.
 
+Code that only announces an event, and does not rely on its listeners, can [publish](publishing.md) it through an
+`EventPublisher` instead of dispatching it.
+
 | Page | Covers |
 | --- | --- |
 | [Listening for events](listeners.md) | Registering listeners, priorities, parent class and interface matching, and duplicate registrations. |
 | [Dispatching events](dispatching.md) | The dispatcher, stoppable events, and exceptions thrown by listeners. |
+| [Publishing events](publishing.md) | One-way publishing, and when to publish rather than dispatch. |
 | [Installation](installation.md) | Requirements and installation. |

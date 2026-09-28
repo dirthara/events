@@ -58,7 +58,8 @@ What a listener returns is ignored. An event with no listeners is returned uncha
 ## Dispatch is synchronous
 
 Every listener has run by the time `dispatch()` returns. Nothing is queued or deferred, and a slow listener delays the
-code that dispatched the event.
+code that dispatched the event. To announce an event without depending on when it is handled, [publish](publishing.md)
+it instead.
 
 ## Stop propagation
 
