@@ -35,12 +35,7 @@ final class ListenerProvider implements ListenerProviderInterface
             throw InvalidEventTypeException::notAnObjectType($event);
         }
 
-        $this->registrations[] = new ListenerRegistration(
-            $event,
-            $listener(...),
-            $priority,
-            $this->order++,
-        );
+        $this->registrations[] = new ListenerRegistration($event, $listener(...), $priority, $this->order++);
 
         usort($this->registrations, ListenerRegistration::compare(...));
     }
